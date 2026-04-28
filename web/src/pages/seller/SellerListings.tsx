@@ -63,7 +63,7 @@ export default function SellerListings() {
                   </FormItem>
                 )} />
                 <FormField control={form.control} name="pricePerKg" render={({ field }) => (
-                  <FormItem><FormLabel>€/kg</FormLabel><FormControl><Input type="number" step="0.01" {...field} /></FormControl><FormMessage /></FormItem>
+                  <FormItem><FormLabel>€/kg</FormLabel><FormControl><Input type="number" step="0.01" {...field} value={field.value as number} /></FormControl><FormMessage /></FormItem>
                 )} />
                 <DialogFooter><Button type="submit" disabled={create.isPending}>Crear</Button></DialogFooter>
               </form>
