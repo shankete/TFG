@@ -30,7 +30,7 @@ export default function AdminProducts() {
   const [editing, setEditing] = useState<AdminProduct | null>(null);
   const [open, setOpen] = useState(false);
 
-  const form = useForm<FormValues>({ resolver: zodResolver(schema), defaultValues: { name: '', slug: '', description: '', imageUrl: '', categoryId: '' } });
+  const form = useForm<FormValues, any, FormValues>({ resolver: zodResolver(schema), defaultValues: { name: '', slug: '', description: '', imageUrl: '', categoryId: '' } });
 
   const openCreate = () => { setEditing(null); form.reset({ name: '', slug: '', description: '', imageUrl: '', categoryId: '' }); setOpen(true); };
   const openEdit = (p: AdminProduct) => { setEditing(p); form.reset({ name: p.name, slug: p.slug, description: p.description, imageUrl: p.imageUrl, categoryId: p.categoryId }); setOpen(true); };

@@ -28,7 +28,7 @@ export default function SellerListings() {
   const ownedIds = new Set(listings?.map((l) => l.productId) ?? []);
   const available = products?.filter((p) => !ownedIds.has(p.id)) ?? [];
 
-  const form = useForm<FormValues>({ resolver: zodResolver(schema), defaultValues: { productId: '', pricePerKg: 1 } });
+  const form = useForm<FormValues, any, FormValues>({ resolver: zodResolver(schema), defaultValues: { productId: '', pricePerKg: 1 } });
 
   const create = useMutation({
     mutationFn: (v: FormValues) => listingsApi.create(v),
